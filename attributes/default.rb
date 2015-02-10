@@ -23,19 +23,16 @@ default["monit"]["packages"] = %w(
 
 default["monit"]["service_name"] = value_for_platform_family(
   "debian" => "monit",
-  "ubuntu" => "monit",
   "suse" => "monit"
 )
 
 default["monit"]["sysconfig_file"] = value_for_platform_family(
   "debian" => "/etc/default/monit",
-  "ubuntu" => "/etc/default/monit",
   "suse" => "/etc/sysconfig/monit"
 )
 
 default["monit"]["config_file"] = value_for_platform_family(
   "debian" => "/etc/monitrc",
-  "ubuntu" => "/etc/monitrc",
   "suse" => "/etc/monitrc"
 )
 
@@ -53,8 +50,8 @@ default["monit"]["pid_file"] = "/var/run/monit.pid"
 default["monit"]["config_dir"] = "/etc/monit.d"
 default["monit"]["events_dir"] = "/run/monit/events"
 default["monit"]["mailservers"] = ["localhost port 25"]
-default["monit"]["alerts"] = ["hostmaster@webhippie.de"]
-default["monit"]["reply"] = "support@webhippie.de"
+default["monit"]["alerts"] = []
+default["monit"]["reply"] = ""
 default["monit"]["subject"] = "Monit: $EVENT $SERVICE at $DATE"
 default["monit"]["message"] = "$EVENT $SERVICE $ACTION at $DATE on $HOST:\\n$DESCRIPTION"
 
@@ -65,7 +62,7 @@ default["monit"]["webinterface"]["allows"] = ["localhost"]
 
 default["monit"]["mmonit"]["enabled"] = false
 default["monit"]["mmonit"]["without_creds"] = false
-default["monit"]["mmonit"]["host"] = "http://monit:monit@monit.webhippie.de:8080/collector"
+default["monit"]["mmonit"]["host"] = "http://monit:monit@monit.example.com:8080/collector"
 
 default["monit"]["load"]["enabled"] = true
 default["monit"]["load"]["cycles"] = 5
